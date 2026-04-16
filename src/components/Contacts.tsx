@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, FormEvent } from 'react';
 import Icon from '@/components/ui/icon';
 
 export default function Contacts() {
@@ -7,7 +7,7 @@ export default function Contacts() {
   const [message, setMessage] = useState('');
   const [sent, setSent] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     setSent(true);
   };

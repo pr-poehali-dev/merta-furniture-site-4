@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, FormEvent } from 'react';
 import Icon from '@/components/ui/icon';
 
 interface AuthModalProps {
@@ -17,7 +17,7 @@ export default function AuthModal({ isOpen, onClose, onLogin }: AuthModalProps) 
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     const displayName = name || email.split('@')[0];
     onLogin(displayName);
