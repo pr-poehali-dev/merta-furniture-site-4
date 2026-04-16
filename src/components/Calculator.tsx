@@ -29,8 +29,9 @@ const complexityMult: Record<Complexity, { label: string; mult: number }> = {
   complex: { label: 'Сложный', mult: 1.7 },
 };
 
-const WORK_RATE = 0.30; // 30% от стоимости материалов
-const DESIGN_RATE = 0.07; // 7%
+const WORK_RATE = 0.30;
+const DESIGN_RATE = 0.07;
+const furnitureAreaBase: Record<FurnitureType, number> = { kitchen: 1.0, wardrobe: 0.8, bedroom: 1.2, sofa: 0.6, hallway: 0.7, office: 0.9 };
 
 export default function Calculator() {
   const [furnitureType, setFurnitureType] = useState<FurnitureType>('kitchen');
@@ -46,7 +47,8 @@ export default function Calculator() {
     const h = parseFloat(height) || 0;
     const d = parseFloat(depth) || 0;
     // Approximate surface area for furniture
-    return (w * h + w * d + h * d) * 2 * 0.4;
+    const base = furnitureAreaBase[furnitureType];
+    return Math.max((w * h + w * d + h * d) * 2 * 0.4, base);
   };
 
   const getMaterialCost = () => {

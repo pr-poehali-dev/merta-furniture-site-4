@@ -4,7 +4,7 @@ import Icon from '@/components/ui/icon';
 interface AuthModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onLogin: (name: string, email: string) => void;
+  onLogin: (name: string) => void;
 }
 
 type Mode = 'login' | 'register';
@@ -20,7 +20,7 @@ export default function AuthModal({ isOpen, onClose, onLogin }: AuthModalProps) 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const displayName = name || email.split('@')[0];
-    onLogin(displayName, email);
+    onLogin(displayName);
     onClose();
   };
 

@@ -70,7 +70,7 @@ const Index = () => {
       />
 
       <main>
-        <Hero onCatalogClick={() => {}} />
+        <Hero />
         <Recommendations onAddToCart={addToCart} />
         <Catalog onAddToCart={addToCart} />
         <Calculator />

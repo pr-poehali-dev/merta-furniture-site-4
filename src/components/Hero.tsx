@@ -2,11 +2,7 @@ import Icon from '@/components/ui/icon';
 
 const heroImage = 'https://cdn.poehali.dev/projects/ef1688b3-a987-4041-b5a3-f5314c9633dd/files/33e444a7-459d-4f64-90f9-a3a1802e38db.jpg';
 
-interface HeroProps {
-  onCatalogClick: () => void;
-}
-
-export default function Hero({ onCatalogClick }: HeroProps) {
+export default function Hero() {
   const scrollTo = (href: string) => {
     const el = document.querySelector(href);
     if (el) el.scrollIntoView({ behavior: 'smooth' });
